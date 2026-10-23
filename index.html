@@ -801,7 +801,7 @@
 <div class="page">
   <header class="header">
     <h1>图片体积压缩</h1>
-    <span class="header-note">保持原始像素尺寸与画质 · 本地离线处理不上传</span>
+    <span class="header-note">严格锁定原始像素分辨率 · 全程本地处理不上传</span>
   </header>
 
   <section class="panel">
@@ -1798,8 +1798,8 @@
 
   function getStrictMaxBytes(targetBytes) {
     // Small safety margin so KB rounding and strict `<` portal validators always pass
-    const margin = Math.min(512, Math.max(32, Math.ceil(targetBytes * 0.002)));
-    return Math.max(256, targetBytes - margin);
+    const margin = Math.min(512, Math.max(16, Math.ceil(targetBytes * 0.002)));
+    return Math.max(1, targetBytes - margin);
   }
 
   function syncPresetHighlight() {
